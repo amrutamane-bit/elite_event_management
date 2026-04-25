@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gallery - ELITE</title>
+    <link rel="stylesheet" href="gallery.css">
+</head>
+
+<body>
+
+<header>
+    <h1>ELITE</h1>
+
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="services.html">SERVICES</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="book.html"class="btn">BOOK NOW</a>
+    </nav>
+</header>
+
+<section class="gallery-header">
+    <p class="sub-title">Sweet Memories</p>
+    <h2>OUR CAPTURED MOMENTS</h2>
+
+    <!-- FILTER BUTTONS -->
+   <div class="filters">
+    <button class="active" data-filter="all">All Photos</button>
+    <button data-filter="food">Food</button>
+    <button data-filter="decor">Decor Management</button>
+    <button data-filter="hospitality">Hospitality</button>
+</div>
+</section>
+
+<!-- IMAGE GRID -->
+<section class="gallery">
+    <img src="images/event1.jpg" data-category="decor">
+    <img src="images/event2.jpg" data-category="decor">
+    <img src="images/event3.jpg" data-category="decor">
+    <img src="images/event4.jpg" data-category="decor">
+    <img src="images/event5.jpg" data-category="food">
+    <img src="images/event6.jpg" data-category="hospitality">
+    <img src="images/event7.jpg" data-category="hospitality">
+    <img src="images/event8.jpg" data-category="food">
+</section>
+
+
+
+<script>
+const buttons = document.querySelectorAll(".filters button");
+const images = document.querySelectorAll(".gallery img");
+
+buttons.forEach(button => {
+    button.addEventListener("click", () => {
+
+        // remove active class from all buttons
+        buttons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        const filter = button.getAttribute("data-filter");
+
+        images.forEach(img => {
+            if (filter === "all" || img.getAttribute("data-category") === filter) {
+                img.style.display = "block";
+            } else {
+                img.style.display = "none";
+            }
+        });
+
+    });
+});
+</script>
+</body>
+</html>
