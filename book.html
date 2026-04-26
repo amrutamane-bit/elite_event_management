@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Now - ELITE</title>
+    <link rel="stylesheet" href="book.css">
+</head>
+
+<body>
+
+<header>
+    <h1>ELITE</h1>
+
+    <nav>
+        <a href="index.html">HOME</a>
+        <a href="gallery.html">GALLERY</a>
+        <a href="services.html">SERVICES</a>
+        <a href="book.html" class="btn">BOOK NOW</a>
+    </nav>
+</header>
+
+<section class="contact">
+    <h2>Book Your Event</h2>
+    <p>Let’s make your event unforgettable ✨</p>
+
+    <form class="contact-form" onsubmit="showPopup(event)">
+
+        <input type="text" name="name" placeholder="Your Name" required>
+
+<input type="email" name="email" placeholder="Your Email" required>
+
+<input type="tel" name="phone" placeholder="Phone Number" 
+       pattern="[0-9]{10}" required>
+
+<input type="date" id="eventDate" name="date" required>
+        <!-- SERVICES -->
+        <div class="services-box">
+            <p>Select Services</p>
+
+            <label><input type="checkbox"name="services"> Corporate Event Planning</label>
+            <label><input type="checkbox"name="services"> Open Venue Setup</label>
+            <label><input type="checkbox"name="services"> Hall Booking</label>
+            <label><input type="checkbox"name="services"> Food & Catering</label>
+            <label><input type="checkbox"name="services"> Live Entertainment</label>
+            <label><input type="checkbox"name="services"> Host / Anchor</label>
+            <label><input type="checkbox"name="services"> Decoration & Theme Design</label>
+            <label><input type="checkbox"name="services"> Photography & Videography</label>
+            <label><input type="checkbox"name="services"> Lighting & Sound</label>
+            <label><input type="checkbox"name="services"> Guest Hospitality</label>
+        </div>
+
+        <textarea placeholder="Additional Message" rows="4"></textarea>
+
+        <button type="submit" class="btn">Book Now</button>
+
+    </form>
+</section>
+
+<!-- POPUP -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <h3>Thank You!</h3>
+        <p>We will contact you through call and email.</p>
+        <button onclick="closePopup()">OK</button>
+    </div>
+</div>
+
+<<script>
+function showPopup(event){
+    event.preventDefault();
+
+    // get form values
+    const email = document.querySelector('input[name="email"]').value;
+    const services = document.querySelectorAll('input[name="services"]:checked');
+
+    // EMAIL VALIDATION
+    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if(!email.match(emailPattern)){
+        alert("Please enter a valid email address");
+        return;
+    }
+
+    // SERVICES VALIDATION
+    if(services.length === 0){
+        alert("Please select at least one service");
+        return;
+    }
+
+    // ALL GOOD → SHOW POPUP
+    document.getElementById("popup").style.display = "flex";
+
+    // RESET FORM
+    document.querySelector(".contact-form").reset();
+}
+
+function closePopup(){
+    document.getElementById("popup").style.display = "none";
+}
+
+// FUTURE DATE ONLY
+const today = new Date().toISOString().split("T")[0];
+document.getElementById("eventDate").setAttribute("min", today);
+</script>
+
+</body>
+</html>
