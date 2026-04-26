@@ -11,6 +11,11 @@ background:url("images/home.jpg");
 background-size:cover;
 background-position:center;
 color:white;
+ background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
+                url("images/home.jpg");
+background-size: cover;
+background-position: center;
+background-attachment: fixed;   /* ⭐ KEY LINE */
 }
 
 /* HEADER */
@@ -139,3 +144,4 @@ object-fit:cover;
 border-radius:10px;
 box-shadow:0 10px 25px rgba(0,0,0,0.5);
 }
+

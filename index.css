@@ -11,6 +11,10 @@ background:url("images/home.jpg");
 background-size:cover;
 background-position:center;
 color:white;
+background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
+            url("images/home.jpg");
+background-size:cover;
+background-position:center;
 }
 
 /* HEADER */
@@ -30,11 +34,11 @@ letter-spacing:2px;
 
 /* NAVBAR */
 nav a{
-margin-left:20px;
-color:white;
-text-decoration:none;
-font-weight:bold;
-position:relative;
+    margin-left: 25px;      /* spacing between items */
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
 }
 
 /* Hover underline animation */
@@ -49,6 +53,11 @@ background:#ffd803;
 transition:0.3s;
 }
 
+
+nav{
+    display: flex;          /* ⭐ makes items in one line */
+    align-items: center;
+}
 nav a:hover::after{
 width:100%;
 }
@@ -113,3 +122,5 @@ opacity:1;
 transform:translateY(-50%);
 }
 }
+
+
